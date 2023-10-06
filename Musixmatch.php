@@ -155,7 +155,7 @@ class Musix
          $minutes = $item['time']['minutes'];
          $seconds = $item['time']['seconds'];
          $hundredths = $item['time']['hundredths'];
-         $text = $item['text'];
+         $text = empty($item['text']) ? '♪' : $item['text'];
 
          $lrc .= sprintf("[%02d:%02d.%02d]%s\n", $minutes, $seconds, $hundredths, $text);
          }
