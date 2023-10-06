@@ -6,9 +6,9 @@ Easily get music Synced Lyrics by using MusixMatch API written in PHP!
 ```Php
 
     include_once("./Musixmatch.php");
+
     $musix = new MusixLyricsApi\Musix(); 
-   
-   echo $musix->getLyricsAlternative("Hope", "XXXTENTACION");
+    echo $musix->getLyricsAlternative("Hope", "XXXTENTACION");
 
 ```
 
@@ -17,7 +17,7 @@ Easily get music Synced Lyrics by using MusixMatch API written in PHP!
 ```Php
     include_once("./Musixmatch.php");
 
-    $youtube = new MusixLyricsApi\Musix();
+    $musix = new MusixLyricsApi\Musix();
     $track_id = $musix->searchTrack("Hope XXXTENTACION");      
     echo $musix->getLyrics($track_id);
 ```
