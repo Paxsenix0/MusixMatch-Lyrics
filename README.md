@@ -48,3 +48,6 @@ __Lyrics Synced Default__
 
 ### Information
 i'm sorry if the code is too weird, because i'm only using Phone (i don't have PC/Laptop) and i'm still beginner:)
+
+###Idea
+i'm doing searching about lyrics API because of this repo :) https://github.com/akashrchandran/spotify-lyrics-api
