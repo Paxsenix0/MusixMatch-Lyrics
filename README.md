@@ -6,21 +6,20 @@ Easily get music Synced Lyrics by using MusixMatch API written in PHP!
 __Using alternative method (title, artist name, duration)__
 
 ```
-https://paxsenixofc.my.id/server/getLyricsMusix?t=Hope&a=XXXTENTACION&d=1:50&type=alternative
+http://kokgitu.eu5.org/songs/lyrics?t=Hope&a=XXXTENTACION&d=1:50&type=alternative
 ```
 __Using default method__
 
 ```
-https://paxsenixofc.my.id/server/getLyricsMusix?q=Hope XXXTentacion&type=default
+http://kokgitu.eu5.org/songs/lyrics?q=Hope%20XXXTentacion&type=default
 ```
 response:
 
 ```
-[00:02.80] Yeah
-[00:05.56] 
-[00:11.06] Rest in peace to all the kids that lost their lives in the Parkland shooting
-[00:13.63] This song is dedicated to you
-
+[00:02.80]Yeah
+[00:05.56]♪
+[00:11.06]Rest in peace to all the kids that lost their lives in the Parkland shooting
+[00:13.63]This song is dedicated to you
 ```
 
 ### How to use
