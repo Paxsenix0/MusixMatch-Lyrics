@@ -6,12 +6,12 @@ Easily get music Synced Lyrics by using MusixMatch API written in PHP!
 __Using alternative method (title, artist name, duration)__
 
 ```
-http://kokgitu.eu5.org/songs/lyrics?t=Hope&a=XXXTENTACION&d=1:50&type=alternative
+https://paxsenixofc.my.id/server/getLyricsMusix.php?t=Hope&a=XXXTENTACION&d=1:50&type=alternative
 ```
 __Using default method__
 
 ```
-http://kokgitu.eu5.org/songs/lyrics?q=Hope%20XXXTentacion&type=default
+https://paxsenixofc.my.id/server/getLyricsMusix.php?q=Hope%20XXXTentacion&type=default
 ```
 response:
 
