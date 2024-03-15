@@ -2,19 +2,15 @@
 
 namespace MusixLyricsApi;
 
-class Musix
-{
+class Musix {
     private $token_url = 'https://apic-desktop.musixmatch.com/ws/1.1/token.get?app_id=web-desktop-app-v1.0';
     private $search_term_url = 'https://apic-desktop.musixmatch.com/ws/1.1/track.search?app_id=web-desktop-app-v1.0&page_size=5&page=1&s_track_rating=desc&quorum_factor=1.0';
     private $lyrics_url = 'https://apic-desktop.musixmatch.com/ws/1.1/track.subtitle.get?app_id=web-desktop-app-v1.0&subtitle_format=lrc';
     private $lyrics_alternative = 'https://apic-desktop.musixmatch.com/ws/1.1/macro.subtitles.get?format=json&namespace=lyrics_richsynched&subtitle_format=mxm&app_id=web-desktop-app-v1.0';
 
-    function __construct()
-    {
-    }
+    function __construct() { }
     
-    function get($url): string
-    {
+    function get($url): string {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_TIMEOUT, 600);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -34,8 +30,7 @@ class Musix
         return $result;
     }
 
-    function getToken(): void
-    {
+    function getToken(): void {
         
         $result = $this->get($this->token_url);
         
@@ -61,8 +56,7 @@ class Musix
         file_put_contents($tokenFile, json_encode($token_data));
      }
 
-    function checkTokenExpire(): void
-    {
+    function checkTokenExpire(): void {
       $check = file_exists('musix.txt');
       $timeNow = time();
     if ($check) {
@@ -75,8 +69,7 @@ class Musix
     }
     }
 
-    function getLyrics($track_id): string
-    {
+    function getLyrics($track_id): string {
         // Implement lyrics retrieval logic here and return the JSON result.
         $json = file_get_contents('musix.txt');
         $token = json_decode($json, true)['user_token'];
@@ -89,8 +82,7 @@ class Musix
         return $lyrics;
     }
     
-    function getLyricsAlternative($title, $artist, $duration = null): string
-    {
+    function getLyricsAlternative($title, $artist, $duration = null): string {
         // Implement lyrics retrieval logic here and return the JSON result.
         $json = file_get_contents('musix.txt');
         $token = json_decode($json, true)['user_token'];
@@ -115,8 +107,7 @@ class Musix
         return $lyricsText;
     }
     
-    function searchTrack($query): string
-{
+    function searchTrack($query): string {
     // Implement lyrics retrieval logic here and return the JSON result.
     $json = file_get_contents('musix.txt');
     $token = json_decode($json, true)['user_token'];
@@ -144,8 +135,7 @@ class Musix
     return $listResult['message']['body']['track_list'][0]['track']['track_id'];
 }
 
-    function getLrcLyrics($lyrics): string
-    {
+    function getLrcLyrics($lyrics): string {
         $data = json_decode($lyrics, true);
 
         $lrc = '';
