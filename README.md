@@ -26,7 +26,10 @@ Example:
 ```
 https://paxsenixofc.my.id/server/getLyricsMusix.php?q=Hope%20XXXTentacion&type=default
 ```
-response:
+
+---
+
+### Response:
 
 ```
 [00:02.80]Yeah
@@ -35,31 +38,31 @@ response:
 [00:13.63]This song is dedicated to you
 ```
 
-### How to use
-__Lyrics Synced Alternative__
+### How to Use
 
-```Php
+#### Lyrics Synced Alternative
 
-    include_once("./Musixmatch.php");
-
-    $musix = new MusixLyricsApi\Musix(); 
-    echo $musix->getLyricsAlternative("Hope", "XXXTENTACION");
-
+```php
+include_once("./Musixmatch.php");
+$musix = new MusixLyricsApi\Musix(); 
+echo $musix->getLyricsAlternative("Hope", "XXXTENTACION");
 ```
 
-__Lyrics Synced Default__
+#### Lyrics Synced Default
 
-```Php
-    include_once("./Musixmatch.php");
-
-    $musix = new MusixLyricsApi\Musix();
-    $track_id = $musix->searchTrack("Hope XXXTENTACION");      
-    echo $musix->getLyrics($track_id);
+```php
+include_once("./Musixmatch.php");
+$musix = new MusixLyricsApi\Musix();
+$track_id = $musix->searchTrack("Hope XXXTENTACION");      
+echo $musix->getLyrics($track_id);
 ```
-
 
 ### Information
-i'm sorry if the code is too weird, because i'm only using Phone (i don't have PC/Laptop) and i'm still beginner:)
+
+I'm sorry if the code looks weird; I'm working only on a phone (I don't have a PC/Laptop) and I'm still a beginner. :)
 
 ### Idea
-i'm doing searching about lyrics API because of this repo :) https://github.com/akashrchandran/spotify-lyrics-api
+
+I started searching for lyrics APIs because of this repository: [Spotify Lyrics API by akashrchandran](https://github.com/akashrchandran/spotify-lyrics-api)
+
+---
