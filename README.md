@@ -3,17 +3,25 @@ Easily get music Synced Lyrics by using MusixMatch API written in PHP!
 
 ### Examples
 
-__Using alternative method__
-Use endpoint `/getLyricsMusix.php`.
-and parameter
-• `t` => title song
-• `a` => artist name
-• `d` => duration song, **You can use it as duration format `1:50` or `111`
+#### Using Alternative Method
+
+To retrieve lyrics using the alternative method, use the `/getLyricsMusix.php` endpoint with the following parameters:
+- `t`: The title of the song
+- `a`: The artist's name
+- `d`: The duration of the song (you can specify the duration in either `mm:ss` format or in total seconds)
+
+Example:
 
 ```
 https://paxsenixofc.my.id/server/getLyricsMusix.php?t=Hope&a=XXXTENTACION&d=1:50&type=alternative
 ```
-__Using default method__
+
+#### Using Default Method
+
+To retrieve lyrics using the default method, use the `/getLyricsMusix.php` endpoint with the following parameter:
+- `q`: The query string containing the song title and artist name
+
+Example:
 
 ```
 https://paxsenixofc.my.id/server/getLyricsMusix.php?q=Hope%20XXXTentacion&type=default
