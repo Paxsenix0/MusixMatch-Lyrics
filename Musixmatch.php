@@ -4,7 +4,7 @@ namespace MusixLyricsApi;
 
 class Musix {
     private $token_url = 'https://apic-desktop.musixmatch.com/ws/1.1/token.get?app_id=web-desktop-app-v1.0';
-    private $search_term_url = 'https://apic-desktop.musixmatch.com/ws/1.1/track.search?app_id=web-desktop-app-v1.0&page_size=5&page=1&s_track_rating=desc&quorum_factor=1.0';
+    private $search_term_url = 'https://apic-desktop.musixmatch.com/ws/1.1/macro.search?app_id=web-desktop-app-v1.0&page_size=5&page=1&s_track_rating=desc&quorum_factor=1.0';
     private $lyrics_url = 'https://apic-desktop.musixmatch.com/ws/1.1/track.subtitle.get?app_id=web-desktop-app-v1.0&subtitle_format=lrc';
     private $lyrics_alternative = 'https://apic-desktop.musixmatch.com/ws/1.1/macro.subtitles.get?format=json&namespace=lyrics_richsynched&subtitle_format=mxm&app_id=web-desktop-app-v1.0';
 
@@ -108,32 +108,26 @@ class Musix {
     }
     
     function searchTrack($query): string {
-    // Implement lyrics retrieval logic here and return the JSON result.
-    $json = file_get_contents('musix.txt');
-    $token = json_decode($json, true)['user_token'];
-    $formatted_url = $this->search_term_url . '&q=' . $query . '&usertoken=' . $token;
-
-    $result = $this->get($formatted_url);
-
-    $listResult = json_decode($result, true);
-
-    if (!isset($listResult['message']['body']['track_list'])) {
+      $json = file_get_contents('musix.txt');
+      $token = json_decode($json, true)['user_token'];
+      $formatted_url = $this->search_term_url . '&q=' . $query . '&usertoken=' . $token;
+      $result = $this->get($formatted_url);
+      //file_put_contents('music2.json', $result);
+      $listResult = json_decode($result, true);
+      if (!isset($listResult['message']['body']['macro_result_list']['track_list'])) {
         throw new \Exception($result);
-    }
-
-    foreach ($listResult['message']['body']['track_list'] as $track) {
+      }
+      
+      foreach ($listResult['message']['body']['macro_result_list']['track_list'] as $track) {
         $trackObj = $track['track'];
-
         $trackName = $trackObj['track_name'] . ' ' . $trackObj['artist_name'];
-
         if (strstr($query, $trackName)) {
             $answer = $trackObj['track_id'];
-            return $answer; // Return the result when found
+            return $answer;
         }
+      }
+      return $listResult['message']['body']['macro_result_list']['track_list'][0]['track']['track_id'];
     }
-
-    return $listResult['message']['body']['track_list'][0]['track']['track_id'];
-}
 
     function getLrcLyrics($lyrics): string {
         $data = json_decode($lyrics, true);
