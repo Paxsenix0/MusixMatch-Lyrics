@@ -9,6 +9,7 @@ To retrieve lyrics using the alternative method, use the `/getLyricsMusix.php` e
 - `t`: The title of the song
 - `a`: The artist's name
 - `d`: The duration of the song (you can specify the duration in either `mm:ss` format or in total seconds)
+- `type`: The type for search the lyrics, `alternative` for search it by using metadata and `default` is only using song title and artist name
 
 Example:
 
@@ -20,6 +21,7 @@ https://paxsenixofc.my.id/server/getLyricsMusix.php?t=Hope&a=XXXTENTACION&d=1:50
 
 To retrieve lyrics using the default method, use the `/getLyricsMusix.php` endpoint with the following parameter:
 - `q`: The query string containing the song title and artist name
+- `type`: The type for search the lyrics, `alternative` for search it by using metadata and `default` is only using song title and artist name
 
 Example:
 
